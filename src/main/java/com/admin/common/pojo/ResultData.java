@@ -8,7 +8,7 @@ public class ResultData implements Serializable {
 
 	
     // 响应业务状态
-    private Integer status;
+    private Boolean isSuccess;
 
     // 响应消息
     private String msg;
@@ -17,8 +17,8 @@ public class ResultData implements Serializable {
     private Object data;
     
     //构建其他状态的resultdata对象
-    public static ResultData build(Integer status, String msg, Object data) {
-        return new ResultData(status, msg, data);
+    public static ResultData build(Boolean isSuccess, String msg, Object data) {
+        return new ResultData(isSuccess, msg, data);
     }
 
     public static ResultData ok(Object data) {
@@ -33,44 +33,44 @@ public class ResultData implements Serializable {
 
     }
 
-    public static ResultData build(Integer status, String msg) {
-        return new ResultData(status, msg, null);
+    public static ResultData build(Boolean isSuccess, String msg) {
+        return new ResultData(isSuccess, msg, null);
     }
 
-    public ResultData(Integer status, String msg, Object data) {
-        this.status = status;
+    public ResultData(Boolean isSuccess, String msg, Object data) {
+        this.isSuccess = isSuccess;
         this.msg = msg;
         this.data = data;
     }
 
     public ResultData(Object data) {
-        this.status = 200;
+        this.isSuccess = true;
         this.msg = "OK";
         this.data = data;
     }
 
-    public Integer getStatus() {
-        return status;
-    }
+	public Boolean getIsSuccess() {
+		return isSuccess;
+	}
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+	public void setIsSuccess(Boolean isSuccess) {
+		this.isSuccess = isSuccess;
+	}
 
-    public String getMsg() {
-        return msg;
-    }
+	public String getMsg() {
+		return msg;
+	}
 
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
 
-    public Object getData() {
-        return data;
-    }
+	public Object getData() {
+		return data;
+	}
 
-    public void setData(Object data) {
-        this.data = data;
-    }
+	public void setData(Object data) {
+		this.data = data;
+	}
 
 }
